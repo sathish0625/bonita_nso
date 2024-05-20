@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connectorconfiguration:ConnectorConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://www.bonitasoft.org/model/connector/configuration" xmlns:expression="http://www.bonitasoft.org/ns/bpm/expression" xmlns:process="http://www.bonitasoft.org/ns/bpm/process" definitionId="database-postgresql92" version="1.0.0" name="StoreActivity" modelVersion="8">
+  <parameters key="driver">
+    <expression xsi:type="expression:Expression" name="org.postgresql.Driver" content="org.postgresql.Driver" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="url">
+    <expression xsi:type="expression:Expression" name="jdbc:postgresql://localhost:5432/BONITABPM" content="jdbc:postgresql://localhost:5432/BONITABPM" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="script">
+    <expression xsi:type="expression:Expression" name="script()" content="import org.bonitasoft.engine.bpm.flownode.ActivityStates&#xD;&#xA;import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstanceSearchDescriptor&#xD;&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xD;&#xA;&#xD;&#xA;def result = apiAccessor.getProcessAPI().searchArchivedHumanTasks(new SearchOptionsBuilder(0, 1)&#xD;&#xA;&#x9;&#x9;.filter(ArchivedHumanTaskInstanceSearchDescriptor.ROOT_PROCESS_INSTANCE_ID, rootProcessInstanceId)&#xD;&#xA;&#x9;&#x9;.filter(ArchivedHumanTaskInstanceSearchDescriptor.NAME,  'NSO Process')&#xD;&#xA;&#x9;&#x9;.filter(ArchivedHumanTaskInstanceSearchDescriptor.STATE_NAME, ActivityStates.COMPLETED_STATE)&#xD;&#xA;&#x9;&#x9;.done()).result&#xD;&#xA;def userId = result[0].executedBy&#xD;&#xA;def user = apiAccessor.getIdentityAPI().getUser(userId)&#xD;&#xA;def activityName=apiAccessor.processAPI.getActivityInstance(activityInstanceId).getName()&#xD;&#xA;def activityName1=apiAccessor.processAPI.getActivityInstance(activityInstanceId).name&#xD;&#xA;//return &quot;INSERT INTO prof_activity_nsopogen(\&quot;activity_name\&quot;, \&quot;processed_by\&quot;, \&quot;task_periority\&quot;, \&quot;case_id\&quot;) VALUES ('&quot; + nsoProcess.getPanAttachment() + &quot;', '&quot; + user.getUserName() + &quot;', '&quot; + 'Normal' + &quot;', '&quot; + processInstanceId.intValue() + &quot;');&quot;;&#xD;&#xA;def query = &quot;INSERT INTO prof_activity_nsopogen(\&quot;activity_name\&quot;, \&quot;processed_by\&quot;, \&quot;task_periority\&quot;, \&quot;case_id\&quot;) &quot; +&#xD;&#xA;&quot;VALUES ('${nsoProcess.getPanAttachment()}', '${user.getUserName()}', 'Normal', '${processInstanceId}')&quot;&#xD;&#xA;&#xD;&#xA;return query" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+      <referencedElements xsi:type="expression:Expression" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+      <referencedElements xsi:type="expression:Expression" name="activityInstanceId" content="activityInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+      <referencedElements xsi:type="expression:Expression" name="rootProcessInstanceId" content="rootProcessInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+      <referencedElements xsi:type="expression:Expression" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+      <referencedElements xsi:type="process:BusinessObjectData" name="nsoProcess" className="com.proflaut.nso.model.Nsoprocessform">
+        <dataType xsi:type="process:BusinessObjectType" href="platform:/resource/nso-app/diagrams/MyDiagrams-1.0.proc#_oeea2hHzEe-o_eIHrcfjrQ"/>
+      </referencedElements>
+    </expression>
+  </parameters>
+  <parameters key="username">
+    <expression xsi:type="expression:Expression" name="postgres" content="postgres" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="password">
+    <expression xsi:type="expression:Expression" name="1406" content="1406" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="separator">
+    <expression xsi:type="expression:Expression" content="" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="outputType">
+    <expression xsi:type="expression:Expression" name="outputType" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="wizardMode">
+    <expression xsi:type="expression:Expression" name="true" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+  </parameters>
+</connectorconfiguration:ConnectorConfiguration>

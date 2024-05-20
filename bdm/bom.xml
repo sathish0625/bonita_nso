@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0">
+    <businessObjects>
+        <businessObject qualifiedName="com.proflaut.nso.model.BranchDetails">
+            <fields>
+                <field type="STRING" length="255" name="branchName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="branchCode" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="address" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="pincode" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.CmApprovalForm">
+            <fields>
+                <relationField type="AGGREGATION" reference="com.proflaut.nso.model.PoPlanningForm" fetchType="LAZY" name="poplanning" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="approval" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.CreateDatabaseForm">
+            <fields>
+                <field type="STRING" length="255" name="dataBaseName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="tableName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="columnName" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.CreateTerminalMaster">
+            <fields>
+                <field type="STRING" length="255" name="email" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.DbCreation">
+            <fields>
+                <field type="STRING" length="255" name="branchName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="bussinessModel" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="branchCode" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="uploadLayout" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.Nsoprocessform">
+            <fields>
+                <field type="STRING" length="255" name="storeName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="address" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="locality" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="landmark" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="pincode" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="city" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="area" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="panNumber" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="panAttachment" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="gstNumber" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="sizeOfCarpet" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="contactPersonName" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="contactPersonMobileNumber" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="modeOfBussiness" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="category" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="territoryManagerName" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.OperationalApproval">
+            <fields>
+                <relationField type="AGGREGATION" reference="com.proflaut.nso.model.Nsoprocessform" fetchType="LAZY" name="nsoForm" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="approval" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.PoPlanningForm">
+            <fields>
+                <field type="STRING" length="255" name="assignTo" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="addRefStore" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="addPriorityStoreName" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.ProjectLayout">
+            <fields>
+                <field type="LOCALDATE" length="255" name="dateRequest" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.StartForm">
+            <fields>
+                <field type="STRING" length="255" name="startTheProcess" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.proflaut.nso.model.SupplierList">
+            <fields>
+                <field type="STRING" length="255" name="supplierList" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>

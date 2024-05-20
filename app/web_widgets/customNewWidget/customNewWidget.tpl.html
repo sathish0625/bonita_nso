@@ -1,0 +1,78 @@
+<!-- The custom widget template is defined here -->
+<div class="container">
+    <!-- Input Field -->
+    <div class="form-group">
+        <label for="inputField">Input Field:</label>
+        <input type="text" id="inputField" class="form-control" ng-model="properties.inputField">
+    </div>
+
+    <!-- Autocomplete Field -->
+    <div class="form-group">
+        <label for="autocompleteField">Autocomplete Field:</label>
+        <input type="text" id="autocompleteField" class="form-control" ng-model="properties.autocompleteField">
+    </div>
+
+    <!-- Select (Dropdown) Field -->
+    <div class="form-group">
+        <label for="selectField">Select Field:</label>
+        <select id="selectField" class="form-control" ng-model="properties.selectField">
+            <option ng-repeat="option in properties.options" value="{{option.value}}">{{option.label}}</option>
+        </select>
+    </div>
+
+    <!-- Checkbox Field -->
+    <div class="form-group">
+        <label for="checkboxField">Checkbox Field:</label>
+        <input type="checkbox" id="checkboxField" ng-model="properties.checkboxField">
+    </div>
+
+    <!-- Checklist Field -->
+    <div class="form-group">
+        <label>Checklist Field:</label>
+        <div ng-repeat="item in properties.checklist">
+            <input type="checkbox" ng-model="item.checked"> {{item.label}}
+        </div>
+    </div>
+
+    <!-- Datepicker Field -->
+    <div class="form-group">
+        <label for="datepickerField">Datepicker Field:</label>
+        <input type="date" id="datepickerField" class="form-control" ng-model="properties.datepickerField">
+    </div>
+
+    <!-- Datetimepicker Field -->
+    <div class="form-group">
+        <label for="datetimepickerField">Datetimepicker Field:</label>
+        <input type="datetime-local" id="datetimepickerField" class="form-control" ng-model="properties.datetimepickerField">
+    </div>
+
+    <!-- Button Field -->
+    <button class="btn btn-primary" ng-click="ctrl.buttonClick()">Button</button>
+
+    <!-- Save Button Field -->
+    <button class="btn btn-success" ng-click="ctrl.save()">Save</button>
+
+    <!-- HTTP Link Field -->
+    <a href="{{properties.httpLink}}" target="_blank">HTTP Link</a>
+
+    <!-- Image Field -->
+    <img ng-src="{{properties.imageSrc}}" alt="Image" class="img-fluid">
+
+    <!-- Table Field -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th ng-repeat="header in properties.tableHeaders">{{header}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in properties.tableData">
+                <td ng-repeat="cell in row">{{cell}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Datatable Field -->
+    <!-- Assuming you have a directive for datatable -->
+    <datatable data="properties.datatableData" headers="properties.datatableHeaders"></datatable>
+</div>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="sathish">
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="rakesh">
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="dinesh">
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="nsoCreation">
+      <displayName>NSO Creation</displayName>
+    </role>
+    <role name="poPlanning">
+      <displayName>Po Planing Role</displayName>
+    </role>
+    <role name="dbCreation">
+      <displayName>DB Creation Role</displayName>
+    </role>
+  </roles>
+  <groups>
+    <group name="Nso">
+      <displayName>Nso Po Gen Team</displayName>
+    </group>
+    <group name="poPlanning">
+      <displayName>PO Planning team</displayName>
+    </group>
+    <group name="dbCreation">
+      <displayName>DB Creation Team</displayName>
+    </group>
+  </groups>
+  <memberships>
+    <membership>
+      <userName>sathish</userName>
+      <roleName>nsoCreation</roleName>
+      <groupName>Nso</groupName>
+    </membership>
+    <membership>
+      <userName>rakesh</userName>
+      <roleName>poPlanning</roleName>
+      <groupName>poPlanning</groupName>
+    </membership>
+    <membership>
+      <userName>dinesh</userName>
+      <roleName>dbCreation</roleName>
+      <groupName>dbCreation</groupName>
+    </membership>
+  </memberships>
+</organization:Organization>
